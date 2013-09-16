@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+            "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+	<head>
+		<title>Todo.Item.List Demo</title>
+        <style type='text/css'>
+            body {font-family: verdana}
+        </style>
+	</head>
+	<body>
+	    <h1>Todo.Item.List Demo</h1>
+		<ul id='items'></ul>
+		<button href='javascript://' id='create'>Add</button>
+		<script type='text/javascript' 
+                src='../../../steal/steal.js'>
+        </script>
+		<script type='text/javascript'>
+			steal('todo/item/list','todo/fixtures',function(){
+				
+				$('#items').todo_item_list();
+				$('#create').click(function(){
+					new Todo.Models.Item({
+						name: "Grilled Cheese",
+						description: "Bread and Cheese"
+					}).save();
+				})
+
+			
+			})
+		</script>
+	</body>
+</html>

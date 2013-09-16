@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+            "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+	<head>
+		<title>Todo.Item.Create</title>
+        <style type='text/css'>
+            body {font-family: verdana}
+        </style>
+	</head>
+	<body>
+	    <h1>Todo.Item.Create Demo</h1>
+		<form id='create' action=''></form>
+		<div id='items'></div>
+		<script type='text/javascript' 
+                src='../../../steal/steal.js'>
+        </script>
+		<script type='text/javascript'>
+			steal('todo/item/create','todo/fixtures',function(){
+				
+				$('#create').todo_item_create();
+				Todo.Models.Item.bind('created', function(ev, item){
+					$('<div>').html("<h3>"+item.name+"</h3>")
+					        .appendTo( $('#items') )
+				})
+				
+			})
+		</script>
+	</body>
+</html>
